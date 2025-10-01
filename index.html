@@ -12,13 +12,12 @@
       <!-- Progress Bar -->
       <div class="progressbar">
         <div id="progress"></div>
-        <div class="progress-step active"></div>
-        <div class="progress-step"></div>
-        <div class="progress-step"></div>
-        <div class="progress-step"></div>
-        <div class="progress-step"></div>
-        <div class="progress-step"></div>
-        <div class="progress-step"></div>
+        <div class="progress-step active" data-title="Pessoais">1</div>
+        <div class="progress-step" data-title="Rotina">2</div>
+        <div class="progress-step" data-title="Alimentação">3</div>
+        <div class="progress-step" data-title="Saúde">4</div>
+        <div class="progress-step" data-title="Suplementos">5</div>
+        <div class="progress-step" data-title="Final">6</div>
       </div>
 
       <!-- Etapa 1 -->
@@ -36,8 +35,15 @@
         <label>Altura (cm):</label>
         <input type="number" required>
 
+        <label>Onde você mora?</label>
+        <input type="text" required>
+
         <label>Instagram (opcional):</label>
         <input type="text">
+
+        <h3>Objetivos</h3>
+        <label>Quais são os seus principais objetivos com a consultoria?</label>
+        <textarea placeholder="Ex: perda de peso, ganho de massa, definição..." required></textarea>
 
         <div class="btns">
           <button type="button" class="btn-next">Avançar</button>
@@ -45,21 +51,6 @@
       </div>
 
       <!-- Etapa 2 -->
-      <div class="form-step">
-        <h2>Objetivos</h2>
-        <label>Onde você mora?</label>
-        <input type="text" required>
-
-        <label>Quais são os seus principais objetivos com a consultoria?</label>
-        <textarea placeholder="Ex: perda de peso, ganho de massa, definição..." required></textarea>
-
-        <div class="btns">
-          <button type="button" class="btn-prev">Voltar</button>
-          <button type="button" class="btn-next">Avançar</button>
-        </div>
-      </div>
-
-      <!-- Etapa 3 -->
       <div class="form-step">
         <h2>Rotina Diária</h2>
         <label>Horário que acorda:</label>
@@ -83,10 +74,10 @@
         </div>
       </div>
 
-      <!-- Etapa 4 -->
+      <!-- Etapa 3 -->
       <div class="form-step">
         <h2>Alimentação</h2>
-
+        <!-- resto igual da versão anterior -->
         <label>Tem restrição alimentar ou alergia?</label>
         <div class="toggle-group">
           <input type="radio" id="restricao-sim" name="restricao">
@@ -128,11 +119,11 @@
         </div>
       </div>
 
-      <!-- Etapa 5 -->
+      <!-- Etapa 4 -->
       <div class="form-step">
         <h2>Saúde</h2>
-
-        <label>Você costuma realizar atividades aeróbicas?</label>
+        <!-- igual anterior -->
+        <label>Você pode realizar atividades aeróbicas?</label>
         <div class="toggle-group">
           <input type="radio" id="aerobico-sim" name="aerobico">
           <label for="aerobico-sim">Sim</label>
@@ -168,10 +159,10 @@
         </div>
       </div>
 
-      <!-- Etapa 6 -->
+      <!-- Etapa 5 -->
       <div class="form-step">
         <h2>Suplementos e Protocolos</h2>
-
+        <!-- igual anterior -->
         <label>Você usa suplementos ou manipulados?</label>
         <div class="toggle-group">
           <input type="radio" id="sup-sim" name="sup">
@@ -196,7 +187,7 @@
         </div>
       </div>
 
-      <!-- Etapa 7 -->
+      <!-- Etapa 6 -->
       <div class="form-step">
         <h2>Observações Finais</h2>
         <label>Outras observações:</label>
