@@ -8,49 +8,65 @@
 </head>
 <body>
   <div class="container">
-    <form id="multiStepForm">
-      <!-- Progress bar -->
-      <div class="progressbar">
-        <div id="progress"></div>
-        <div class="progress-step active"></div>
-        <div class="progress-step"></div>
-        <div class="progress-step"></div>
-        <div class="progress-step"></div>
-        <div class="progress-step"></div>
-        <div class="progress-step"></div>
-        <div class="progress-step"></div>
-      </div>
+    <!-- Barra de progresso -->
+    <div class="progressbar">
+      <div class="progress-step active"></div>
+      <div class="progress-step"></div>
+      <div class="progress-step"></div>
+      <div class="progress-step"></div>
+      <div id="progress"></div>
+    </div>
 
+    <form id="form">
       <!-- Etapa 1 -->
       <div class="form-step active">
         <h2>Informações Pessoais</h2>
-        <label>Nome completo*</label>
-        <input type="text" name="nome" required>
-        
-        <label>Idade*</label>
-        <input type="number" name="idade" required>
-        
-        <label>Peso atual (kg)*</label>
-        <input type="number" step="0.1" name="peso" required>
-        
-        <label>Altura (cm)*</label>
-        <input type="number" name="altura" required>
-        
-        <label>Instagram</label>
-        <input type="text" name="instagram">
-        
-        <button type="button" class="btn-next">Avançar</button>
+
+        <label for="nome">Nome completo:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="idade">Idade:</label>
+        <input type="number" id="idade" name="idade" required>
+
+        <label for="peso">Peso atual (kg):</label>
+        <input type="number" step="0.1" id="peso" name="peso" required>
+
+        <label for="altura">Altura (cm):</label>
+        <input type="number" id="altura" name="altura" required>
+
+        <label for="instagram">Instagram (opcional):</label>
+        <input type="text" id="instagram" name="instagram">
+
+        <label for="local">Onde você mora?</label>
+        <input type="text" id="local" name="local" required>
+
+        <label for="objetivos">Quais são os seus principais objetivos com a consultoria?</label>
+        <textarea id="objetivos" name="objetivos" required placeholder="Ex: perda de peso, ganho de massa muscular, definição, etc."></textarea>
+
+        <div class="btns">
+          <button type="button" class="btn-next">Avançar</button>
+        </div>
       </div>
 
       <!-- Etapa 2 -->
       <div class="form-step">
-        <h2>Objetivos</h2>
-        <label>Onde você mora?*</label>
-        <input type="text" name="cidade" required>
-        
-        <label>Quais são os seus principais objetivos com a consultoria?*</label>
-        <textarea name="objetivos" required></textarea>
-        
+        <h2>Rotina Diária</h2>
+
+        <label for="acorda">Horário que acorda:</label>
+        <input type="time" id="acorda" name="acorda">
+
+        <label for="trabalho">Horário de trabalho:</label>
+        <input type="text" id="trabalho" name="trabalho">
+
+        <label for="treino">Horário de treino:</label>
+        <input type="text" id="treino" name="treino">
+
+        <label for="dormir">Horário de dormir:</label>
+        <input type="time" id="dormir" name="dormir">
+
+        <label for="refeicoes">Horários que costuma fazer suas refeições:</label>
+        <textarea id="refeicoes" name="refeicoes"></textarea>
+
         <div class="btns">
           <button type="button" class="btn-prev">Voltar</button>
           <button type="button" class="btn-next">Avançar</button>
@@ -59,21 +75,29 @@
 
       <!-- Etapa 3 -->
       <div class="form-step">
-        <h2>Rotina Diária</h2>
-        <label>Horário que acorda</label>
-        <input type="time" name="acorda">
+        <h2>Alimentação</h2>
 
-        <label>Horário de trabalho</label>
-        <input type="text" name="trabalho">
+        <label for="restricao">Tem restrição alimentar ou alergia? Se sim, qual?</label>
+        <input type="text" id="restricao" name="restricao">
 
-        <label>Horário de treino</label>
-        <input type="time" name="treino">
+        <label for="incluir">Cite alimentos que gostaria que fossem incluídos no seu plano alimentar:</label>
+        <textarea id="incluir" name="incluir"></textarea>
 
-        <label>Horário de dormir</label>
-        <input type="time" name="dormir">
+        <label for="excluir">Tem algum alimento que não quer que seja incluído no plano alimentar? Se sim, qual?</label>
+        <textarea id="excluir" name="excluir"></textarea>
 
-        <label>Horários que costuma fazer suas refeições</label>
-        <textarea name="refeicoes"></textarea>
+        <label for="preferencias">Quais suas frutas, legumes e verduras de preferência?</label>
+        <textarea id="preferencias" name="preferencias"></textarea>
+
+        <label for="alimentacao_atual">Qual a sua alimentação atual? Cite alimentos e horários:</label>
+        <textarea id="alimentacao_atual" name="alimentacao_atual"></textarea>
+
+        <label for="marmita">Você tem possibilidade de levar marmita para o trabalho?</label>
+        <select id="marmita" name="marmita">
+          <option value="">Selecione</option>
+          <option value="sim">Sim</option>
+          <option value="nao">Não</option>
+        </select>
 
         <div class="btns">
           <button type="button" class="btn-prev">Voltar</button>
@@ -83,118 +107,85 @@
 
       <!-- Etapa 4 -->
       <div class="form-step">
-        <h2>Alimentação</h2>
-        <label>Tem restrição alimentar ou alergia?</label>
-        <select name="restricao" id="restricao">
-          <option value="nao">Não</option>
-          <option value="sim">Sim</option>
-        </select>
-        <input type="text" id="restricao-qual" placeholder="Qual?" style="display:none;">
+        <h2>Saúde e Treinos</h2>
 
-        <label>Alimentos que gostaria no plano</label>
-        <textarea name="alimentos-incluir"></textarea>
+        <label for="aerobico">Você pode realizar atividades aeróbicas? Se sim, em qual horário?</label>
+        <input type="text" id="aerobico" name="aerobico">
 
-        <label>Alimentos que não gostaria</label>
-        <select name="alimentos-nao" id="alimentosNao">
-          <option value="nao">Não</option>
-          <option value="sim">Sim</option>
-        </select>
-        <input type="text" id="alimentosNao-qual" placeholder="Qual?" style="display:none;">
+        <label for="frequencia">Quantas vezes na semana você consegue treinar e fazer exercícios aeróbicos?</label>
+        <input type="text" id="frequencia" name="frequencia">
 
-        <label>Frutas, legumes e verduras de preferência</label>
-        <textarea name="preferencias"></textarea>
+        <label for="suplementos">Você usa suplementos ou manipulados? Se sim, quais?</label>
+        <textarea id="suplementos" name="suplementos"></textarea>
 
-        <label>Sua alimentação atual (alimentos e horários)</label>
-        <textarea name="alimentacao-atual"></textarea>
+        <label for="alergia_medicamentos">Você possui alguma alergia a alimentos ou medicamentos? Se sim, quais?</label>
+        <textarea id="alergia_medicamentos" name="alergia_medicamentos"></textarea>
 
-        <div class="btns">
-          <button type="button" class="btn-prev">Voltar</button>
-          <button type="button" class="btn-next">Avançar</button>
-        </div>
-      </div>
+        <label for="doenca">Possui alguma doença crônica? Se sim, qual?</label>
+        <textarea id="doenca" name="doenca"></textarea>
 
-      <!-- Etapa 5 -->
-      <div class="form-step">
-        <h2>Atividades Físicas</h2>
-        <label>Você pode levar marmita para o trabalho?</label>
-        <select name="marmita">
-          <option>Sim</option>
-          <option>Não</option>
-        </select>
+        <label for="lesao">Já sofreu alguma lesão? Se sim, qual?</label>
+        <textarea id="lesao" name="lesao"></textarea>
 
-        <label>Pode realizar aeróbicos?</label>
-        <select name="aerobico" id="aerobico">
-          <option value="nao">Não</option>
-          <option value="sim">Sim</option>
-        </select>
-        <input type="text" id="aerobico-horario" placeholder="Em qual horário?" style="display:none;">
+        <label for="hormonal">Está fazendo algum protocolo hormonal? Se sim, informe substância, tempo e dosagem:</label>
+        <textarea id="hormonal" name="hormonal"></textarea>
 
-        <label>Quantas vezes por semana consegue treinar?</label>
-        <input type="number" name="frequencia">
+        <label for="observacoes">Outras observações:</label>
+        <textarea id="observacoes" name="observacoes"></textarea>
 
         <div class="btns">
           <button type="button" class="btn-prev">Voltar</button>
-          <button type="button" class="btn-next">Avançar</button>
-        </div>
-      </div>
-
-      <!-- Etapa 6 -->
-      <div class="form-step">
-        <h2>Saúde</h2>
-        <label>Usa suplementos/manipulados?</label>
-        <select name="suplementos" id="suplementos">
-          <option value="nao">Não</option>
-          <option value="sim">Sim</option>
-        </select>
-        <input type="text" id="suplementos-qual" placeholder="Quais?" style="display:none;">
-
-        <label>Alergia a alimentos ou medicamentos?</label>
-        <select name="alergia" id="alergia">
-          <option value="nao">Não</option>
-          <option value="sim">Sim</option>
-        </select>
-        <input type="text" id="alergia-qual" placeholder="Quais?" style="display:none;">
-
-        <label>Possui doença crônica?</label>
-        <select name="doenca" id="doenca">
-          <option value="nao">Não</option>
-          <option value="sim">Sim</option>
-        </select>
-        <input type="text" id="doenca-qual" placeholder="Quais?" style="display:none;">
-
-        <label>Já sofreu alguma lesão?</label>
-        <select name="lesao" id="lesao">
-          <option value="nao">Não</option>
-          <option value="sim">Sim</option>
-        </select>
-        <input type="text" id="lesao-qual" placeholder="Qual?" style="display:none;">
-
-        <label>Faz protocolo hormonal?</label>
-        <select name="hormonal" id="hormonal">
-          <option value="nao">Não</option>
-          <option value="sim">Sim</option>
-        </select>
-        <textarea id="hormonal-qual" placeholder="Qual substância? Há quanto tempo? Dosagem?" style="display:none;"></textarea>
-
-        <div class="btns">
-          <button type="button" class="btn-prev">Voltar</button>
-          <button type="button" class="btn-next">Avançar</button>
-        </div>
-      </div>
-
-      <!-- Etapa Final -->
-      <div class="form-step">
-        <h2>Observações</h2>
-        <textarea name="observacoes"></textarea>
-        
-        <div class="btns">
-          <button type="button" class="btn-prev">Voltar</button>
-          <button type="submit" class="btn-submit">Enviar</button>
+          <button type="submit" class="btn-enviar">Finalizar</button>
         </div>
       </div>
     </form>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    const prevBtns = document.querySelectorAll(".btn-prev");
+    const nextBtns = document.querySelectorAll(".btn-next");
+    const progress = document.getElementById("progress");
+    const formSteps = document.querySelectorAll(".form-step");
+    const progressSteps = document.querySelectorAll(".progress-step");
+
+    let formStepsNum = 0;
+
+    nextBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        formStepsNum++;
+        updateFormSteps();
+        updateProgressbar();
+      });
+    });
+
+    prevBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        formStepsNum--;
+        updateFormSteps();
+        updateProgressbar();
+      });
+    });
+
+    function updateFormSteps() {
+      formSteps.forEach(step => {
+        step.classList.remove("active");
+      });
+      formSteps[formStepsNum].classList.add("active");
+    }
+
+    function updateProgressbar() {
+      progressSteps.forEach((step, idx) => {
+        if (idx <= formStepsNum) {
+          step.classList.add("active");
+        } else {
+          step.classList.remove("active");
+        }
+      });
+
+      const actives = document.querySelectorAll(".progress-step.active");
+      progress.style.width =
+        ((actives.length - 1) / (progressSteps.length - 1)) * 100 + "%";
+    }
+  </script>
 </body>
 </html>
