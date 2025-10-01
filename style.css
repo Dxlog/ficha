@@ -1,0 +1,156 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #111;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  background: #1c1c1c;
+  padding: 30px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 0 15px rgba(255, 140, 0, 0.4);
+}
+
+/* Progress bar */
+.progressbar {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.progressbar::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  background-color: #333;
+  z-index: -1;
+}
+
+#progress {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  background-color: #ff6600;
+  width: 0%;
+  z-index: -1;
+  transition: 0.4s;
+}
+
+.progress-step {
+  width: 25px;
+  height: 25px;
+  background: #333;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.progress-step.active {
+  background: #ff6600;
+}
+
+/* Steps */
+.form-step {
+  display: none;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.form-step.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  margin-bottom: 15px;
+  color: #ff6600;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  margin-bottom: 15px;
+  font-size: 14px;
+  background: #2a2a2a;
+  color: #fff;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Buttons */
+.btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  background: #ff6600;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #e65c00;
+}
+
+.btn-prev {
+  background: #444;
+}
+
+.btn-prev:hover {
+  background: #333;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .btns {
+    flex-direction: column;
+  }
+}
