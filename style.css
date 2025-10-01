@@ -1,181 +1,47 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+const formSteps = document.querySelectorAll(".form-step");
+const nextBtns = document.querySelectorAll(".btn-next");
+const prevBtns = document.querySelectorAll(".btn-prev");
+const progress = document.getElementById("progress");
+const progressSteps = document.querySelectorAll(".progress-step");
+let formStepsNum = 0;
+
+// Navegação
+nextBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    formStepsNum++;
+    updateFormSteps();
+    updateProgressbar();
+  });
+});
+prevBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    formStepsNum--;
+    updateFormSteps();
+    updateProgressbar();
+  });
+});
+
+function updateFormSteps() {
+  formSteps.forEach(formStep => formStep.classList.remove("active"));
+  formSteps[formStepsNum].classList.add("active");
+}
+function updateProgressbar() {
+  progressSteps.forEach((step, idx) => {
+    if (idx <= formStepsNum) step.classList.add("active");
+    else step.classList.remove("active");
+  });
+  const actives = document.querySelectorAll(".progress-step.active");
+  progress.style.width =
+    ((actives.length - 1) / (progressSteps.length - 1)) * 100 + "%";
 }
 
-body {
-  background: #fff;
-  color: #111;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-  padding: 30px 15px;
-}
-
-.container {
-  background: #1e1e1e;
-  color: #f5f5f5;
-  padding: 40px;
-  border-radius: 16px;
-  width: 100%;
-  max-width: 750px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-}
-
-/* Progress bar */
-.progressbar {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  margin-bottom: 30px;
-}
-
-.progressbar::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  height: 4px;
-  width: 100%;
-  background-color: #333;
-  border-radius: 4px;
-}
-
-#progress {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  height: 4px;
-  background: linear-gradient(90deg, #ff6600, #ff8800);
-  width: 0%;
-  transition: 0.4s ease;
-  border-radius: 4px;
-}
-
-.progress-step {
-  width: 22px;
-  height: 22px;
-  background: #444;
-  border-radius: 50%;
-  z-index: 1;
-}
-
-.progress-step.active {
-  background: #ff6600;
-}
-
-/* Steps */
-.form-step {
-  display: none;
-}
-.form-step.active {
-  display: block;
-  animation: fadeIn 0.3s ease-in-out;
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px);}
-  to { opacity: 1; transform: translateY(0);}
-}
-
-h2 {
-  margin-bottom: 15px;
-  color: #ff6600;
-  font-size: 1.4rem;
-}
-
-label {
-  display: block;
-  margin: 10px 0 6px;
-  font-weight: 500;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  font-size: 15px;
-  background: #2c2c2c;
-  color: #fff;
-}
-input:focus, textarea:focus {
-  background: #333;
-  box-shadow: 0 0 6px #ff6600aa;
-  outline: none;
-}
-
-textarea {
-  resize: vertical;
-  min-height: 80px;
-}
-
-/* Toggle buttons */
-.toggle-group {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 15px;
-}
-.toggle-group input {
-  display: none;
-}
-.toggle-group label {
-  padding: 8px 18px;
-  border-radius: 30px;
-  background: #333;
-  color: #fff;
-  cursor: pointer;
-  transition: 0.3s;
-  user-select: none;
-}
-.toggle-group input:checked + label {
-  background: #ff6600;
-  box-shadow: 0 0 8px #ff660088;
-}
-
-/* Conditional fields */
-.hidden {
-  display: none;
-}
-
-/* Buttons */
-.btns {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-button {
-  background: linear-gradient(90deg, #ff6600, #ff8800);
-  border: none;
-  padding: 12px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 600;
-  transition: 0.2s;
-}
-button:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 10px #ff660088;
-}
-.btn-prev {
-  background: #444;
-}
-.btn-prev:hover {
-  background: #555;
-  box-shadow: none;
-}
-
-/* Responsivo */
-@media (max-width: 600px) {
-  .container { padding: 25px; }
-  .btns { flex-direction: column; }
-  button { width: 100%; }
-}
+// Campos condicionais
+document.querySelectorAll(".toggle-group input").forEach(input => {
+  input.addEventListener("change", e => {
+    const name = e.target.name;
+    const field = document.getElementById(name + "-desc");
+    if (!field) return;
+    if (e.target.id.includes("sim")) field.classList.remove("hidden");
+    else field.classList.add("hidden");
+  });
+});
