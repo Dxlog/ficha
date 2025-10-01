@@ -8,65 +8,75 @@
 </head>
 <body>
   <div class="container">
-    <!-- Barra de progresso -->
-    <div class="progressbar">
-      <div class="progress-step active"></div>
-      <div class="progress-step"></div>
-      <div class="progress-step"></div>
-      <div class="progress-step"></div>
-      <div class="progress-step"></div>
-      <div id="progress"></div>
-    </div>
+    <form id="multi-step-form">
 
-    <form id="form">
-      <!-- Etapa 1 -->
+      <!-- Progress Bar -->
+      <div class="progressbar">
+        <div id="progress"></div>
+        <div class="progress-step active"></div>
+        <div class="progress-step"></div>
+        <div class="progress-step"></div>
+        <div class="progress-step"></div>
+        <div class="progress-step"></div>
+        <div class="progress-step"></div>
+        <div class="progress-step"></div>
+      </div>
+
+      <!-- STEP 1 -->
       <div class="form-step active">
         <h2>Informações Pessoais</h2>
-
         <label for="nome">Nome completo:</label>
-        <input type="text" id="nome" name="nome" required>
+        <input type="text" id="nome" required>
 
         <label for="idade">Idade:</label>
-        <input type="number" id="idade" name="idade" required>
+        <input type="number" id="idade" required>
 
         <label for="peso">Peso atual (kg):</label>
-        <input type="number" step="0.1" id="peso" name="peso" required>
+        <input type="number" step="0.1" id="peso" required>
 
         <label for="altura">Altura (cm):</label>
-        <input type="number" id="altura" name="altura" required>
+        <input type="number" id="altura" required>
 
         <label for="instagram">Instagram (opcional):</label>
-        <input type="text" id="instagram" name="instagram">
+        <input type="text" id="instagram">
 
         <div class="btns">
           <button type="button" class="btn-next">Avançar</button>
         </div>
       </div>
 
-      <!-- Etapa 2 -->
+      <!-- STEP 2 -->
       <div class="form-step">
-        <h2>Objetivos e Rotina</h2>
-
-        <label for="local">Onde você mora?</label>
-        <input type="text" id="local" name="local" required>
+        <h2>Objetivos</h2>
+        <label for="endereco">Onde você mora?</label>
+        <input type="text" id="endereco" required>
 
         <label for="objetivos">Quais são os seus principais objetivos com a consultoria?</label>
-        <textarea id="objetivos" name="objetivos" required placeholder="Ex: perda de peso, ganho de massa muscular, definição, etc."></textarea>
+        <textarea id="objetivos" placeholder="Ex: perda de peso, ganho de massa, definição..." required></textarea>
 
+        <div class="btns">
+          <button type="button" class="btn-prev">Voltar</button>
+          <button type="button" class="btn-next">Avançar</button>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="form-step">
+        <h2>Rotina Diária</h2>
         <label for="acorda">Horário que acorda:</label>
-        <input type="time" id="acorda" name="acorda">
+        <input type="time" id="acorda" required>
 
         <label for="trabalho">Horário de trabalho:</label>
-        <input type="text" id="trabalho" name="trabalho">
+        <input type="text" id="trabalho" placeholder="Ex: 8h às 17h" required>
 
         <label for="treino">Horário de treino:</label>
-        <input type="text" id="treino" name="treino">
+        <input type="time" id="treino">
 
-        <label for="dormir">Horário de dormir:</label>
-        <input type="time" id="dormir" name="dormir">
+        <label for="dormir">Horário que dorme:</label>
+        <input type="time" id="dormir" required>
 
-        <label for="refeicoes">Horários que costuma fazer suas refeições:</label>
-        <textarea id="refeicoes" name="refeicoes"></textarea>
+        <label for="refeicoes">Horários das refeições:</label>
+        <textarea id="refeicoes"></textarea>
 
         <div class="btns">
           <button type="button" class="btn-prev">Voltar</button>
@@ -74,39 +84,43 @@
         </div>
       </div>
 
-      <!-- Etapa 3 -->
+      <!-- STEP 4 -->
       <div class="form-step">
         <h2>Alimentação</h2>
-
-        <p>Tem restrição alimentar ou alergia?</p>
-        <div class="radio-group">
-          <label><input type="radio" name="restricao" value="nao" checked> Não</label>
-          <label><input type="radio" name="restricao" value="sim"> Sim</label>
+        <label>Tem restrição alimentar ou alergia?</label>
+        <div class="toggle-group">
+          <input type="radio" name="restricao" id="restricao-sim">
+          <label for="restricao-sim">Sim</label>
+          <input type="radio" name="restricao" id="restricao-nao" checked>
+          <label for="restricao-nao">Não</label>
         </div>
-        <input type="text" id="restricaoDetalhe" name="restricaoDetalhe" placeholder="Qual?" class="hidden">
+        <input type="text" id="restricao-desc" placeholder="Qual?" class="conditional hidden">
 
-        <label for="incluir">Cite alimentos que gostaria que fossem incluídos no seu plano alimentar:</label>
-        <textarea id="incluir" name="incluir"></textarea>
+        <label for="preferidos">Cite alimentos que gostaria que fossem incluídos:</label>
+        <textarea id="preferidos"></textarea>
 
-        <p>Tem algum alimento que não quer que seja incluído?</p>
-        <div class="radio-group">
-          <label><input type="radio" name="excluir" value="nao" checked> Não</label>
-          <label><input type="radio" name="excluir" value="sim"> Sim</label>
+        <label>Tem algum alimento que não quer incluir?</label>
+        <div class="toggle-group">
+          <input type="radio" name="excluir" id="excluir-sim">
+          <label for="excluir-sim">Sim</label>
+          <input type="radio" name="excluir" id="excluir-nao" checked>
+          <label for="excluir-nao">Não</label>
         </div>
-        <input type="text" id="excluirDetalhe" name="excluirDetalhe" placeholder="Qual?" class="hidden">
+        <input type="text" id="excluir-desc" placeholder="Qual?" class="conditional hidden">
 
-        <label for="preferencias">Quais suas frutas, legumes e verduras de preferência?</label>
-        <textarea id="preferencias" name="preferencias"></textarea>
+        <label for="frutas">Quais suas frutas, legumes e verduras de preferência?</label>
+        <textarea id="frutas"></textarea>
 
-        <label for="alimentacao_atual">Qual a sua alimentação atual? Cite alimentos e horários:</label>
-        <textarea id="alimentacao_atual" name="alimentacao_atual"></textarea>
+        <label for="alimentacao">Qual a sua alimentação atual? (Cite alimentos e horários)</label>
+        <textarea id="alimentacao"></textarea>
 
-        <label for="marmita">Você tem possibilidade de levar marmita para o trabalho?</label>
-        <select id="marmita" name="marmita">
-          <option value="">Selecione</option>
-          <option value="sim">Sim</option>
-          <option value="nao">Não</option>
-        </select>
+        <label>Você tem possibilidade de levar marmita para o trabalho?</label>
+        <div class="toggle-group">
+          <input type="radio" name="marmita" id="marmita-sim">
+          <label for="marmita-sim">Sim</label>
+          <input type="radio" name="marmita" id="marmita-nao" checked>
+          <label for="marmita-nao">Não</label>
+        </div>
 
         <div class="btns">
           <button type="button" class="btn-prev">Voltar</button>
@@ -114,40 +128,38 @@
         </div>
       </div>
 
-      <!-- Etapa 4 -->
+      <!-- STEP 5 -->
       <div class="form-step">
-        <h2>Saúde e Histórico</h2>
-
-        <p>Você pode realizar atividades aeróbicas?</p>
-        <div class="radio-group">
-          <label><input type="radio" name="aerobico" value="nao" checked> Não</label>
-          <label><input type="radio" name="aerobico" value="sim"> Sim</label>
+        <h2>Saúde</h2>
+        <label>Você pode realizar atividades aeróbicas?</label>
+        <div class="toggle-group">
+          <input type="radio" name="aerobico" id="aerobico-sim">
+          <label for="aerobico-sim">Sim</label>
+          <input type="radio" name="aerobico" id="aerobico-nao" checked>
+          <label for="aerobico-nao">Não</label>
         </div>
-        <input type="text" id="aerobicoDetalhe" name="aerobicoDetalhe" placeholder="Em qual horário?" class="hidden">
+        <input type="text" id="aerobico-desc" placeholder="Em qual horário?" class="conditional hidden">
 
-        <label for="frequencia">Quantas vezes na semana você consegue treinar e fazer exercícios aeróbicos?</label>
-        <input type="text" id="frequencia" name="frequencia">
+        <label for="freq-treino">Quantas vezes por semana consegue treinar e fazer aeróbicos?</label>
+        <input type="text" id="freq-treino">
 
-        <p>Você possui alguma alergia a alimentos ou medicamentos?</p>
-        <div class="radio-group">
-          <label><input type="radio" name="alergia" value="nao" checked> Não</label>
-          <label><input type="radio" name="alergia" value="sim"> Sim</label>
+        <label>Você possui alguma doença crônica?</label>
+        <div class="toggle-group">
+          <input type="radio" name="cronica" id="cronica-sim">
+          <label for="cronica-sim">Sim</label>
+          <input type="radio" name="cronica" id="cronica-nao" checked>
+          <label for="cronica-nao">Não</label>
         </div>
-        <input type="text" id="alergiaDetalhe" name="alergiaDetalhe" placeholder="Quais?" class="hidden">
+        <input type="text" id="cronica-desc" placeholder="Qual?" class="conditional hidden">
 
-        <p>Possui alguma doença crônica?</p>
-        <div class="radio-group">
-          <label><input type="radio" name="doenca" value="nao" checked> Não</label>
-          <label><input type="radio" name="doenca" value="sim"> Sim</label>
+        <label>Já sofreu alguma lesão?</label>
+        <div class="toggle-group">
+          <input type="radio" name="lesao" id="lesao-sim">
+          <label for="lesao-sim">Sim</label>
+          <input type="radio" name="lesao" id="lesao-nao" checked>
+          <label for="lesao-nao">Não</label>
         </div>
-        <input type="text" id="doencaDetalhe" name="doencaDetalhe" placeholder="Qual?" class="hidden">
-
-        <p>Já sofreu alguma lesão?</p>
-        <div class="radio-group">
-          <label><input type="radio" name="lesao" value="nao" checked> Não</label>
-          <label><input type="radio" name="lesao" value="sim"> Sim</label>
-        </div>
-        <input type="text" id="lesaoDetalhe" name="lesaoDetalhe" placeholder="Qual?" class="hidden">
+        <input type="text" id="lesao-desc" placeholder="Qual?" class="conditional hidden">
 
         <div class="btns">
           <button type="button" class="btn-prev">Voltar</button>
@@ -155,32 +167,45 @@
         </div>
       </div>
 
-      <!-- Etapa 5 -->
+      <!-- STEP 6 -->
       <div class="form-step">
-        <h2>Suplementação e Observações</h2>
-
-        <p>Você usa suplementos ou manipulados?</p>
-        <div class="radio-group">
-          <label><input type="radio" name="suplementos" value="nao" checked> Não</label>
-          <label><input type="radio" name="suplementos" value="sim"> Sim</label>
+        <h2>Suplementos e Protocolos</h2>
+        <label>Você usa suplementos ou manipulados?</label>
+        <div class="toggle-group">
+          <input type="radio" name="suplemento" id="suplemento-sim">
+          <label for="suplemento-sim">Sim</label>
+          <input type="radio" name="suplemento" id="suplemento-nao" checked>
+          <label for="suplemento-nao">Não</label>
         </div>
-        <input type="text" id="suplementosDetalhe" name="suplementosDetalhe" placeholder="Quais?" class="hidden">
+        <input type="text" id="suplemento-desc" placeholder="Quais?" class="conditional hidden">
 
-        <p>Está fazendo algum protocolo hormonal?</p>
-        <div class="radio-group">
-          <label><input type="radio" name="hormonal" value="nao" checked> Não</label>
-          <label><input type="radio" name="hormonal" value="sim"> Sim</label>
+        <label>Está fazendo algum protocolo hormonal?</label>
+        <div class="toggle-group">
+          <input type="radio" name="hormonal" id="hormonal-sim">
+          <label for="hormonal-sim">Sim</label>
+          <input type="radio" name="hormonal" id="hormonal-nao" checked>
+          <label for="hormonal-nao">Não</label>
         </div>
-        <textarea id="hormonalDetalhe" name="hormonalDetalhe" placeholder="Informe substância, tempo e dosagem:" class="hidden"></textarea>
-
-        <label for="observacoes">Outras observações:</label>
-        <textarea id="observacoes" name="observacoes"></textarea>
+        <textarea id="hormonal-desc" placeholder="Informe substância, tempo e dosagem" class="conditional hidden"></textarea>
 
         <div class="btns">
           <button type="button" class="btn-prev">Voltar</button>
-          <button type="submit" class="btn-enviar">Finalizar</button>
+          <button type="button" class="btn-next">Avançar</button>
         </div>
       </div>
+
+      <!-- STEP 7 -->
+      <div class="form-step">
+        <h2>Observações Finais</h2>
+        <label for="obs">Outras observações:</label>
+        <textarea id="obs"></textarea>
+
+        <div class="btns">
+          <button type="button" class="btn-prev">Voltar</button>
+          <button type="submit" class="btn-submit">Finalizar</button>
+        </div>
+      </div>
+
     </form>
   </div>
 
