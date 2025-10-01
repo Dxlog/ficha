@@ -14,6 +14,7 @@
       <div class="progress-step"></div>
       <div class="progress-step"></div>
       <div class="progress-step"></div>
+      <div class="progress-step"></div>
       <div id="progress"></div>
     </div>
 
@@ -37,12 +38,6 @@
         <label for="instagram">Instagram (opcional):</label>
         <input type="text" id="instagram" name="instagram">
 
-        <label for="local">Onde você mora?</label>
-        <input type="text" id="local" name="local" required>
-
-        <label for="objetivos">Quais são os seus principais objetivos com a consultoria?</label>
-        <textarea id="objetivos" name="objetivos" required placeholder="Ex: perda de peso, ganho de massa muscular, definição, etc."></textarea>
-
         <div class="btns">
           <button type="button" class="btn-next">Avançar</button>
         </div>
@@ -50,7 +45,13 @@
 
       <!-- Etapa 2 -->
       <div class="form-step">
-        <h2>Rotina Diária</h2>
+        <h2>Objetivos e Rotina</h2>
+
+        <label for="local">Onde você mora?</label>
+        <input type="text" id="local" name="local" required>
+
+        <label for="objetivos">Quais são os seus principais objetivos com a consultoria?</label>
+        <textarea id="objetivos" name="objetivos" required placeholder="Ex: perda de peso, ganho de massa muscular, definição, etc."></textarea>
 
         <label for="acorda">Horário que acorda:</label>
         <input type="time" id="acorda" name="acorda">
@@ -77,14 +78,22 @@
       <div class="form-step">
         <h2>Alimentação</h2>
 
-        <label for="restricao">Tem restrição alimentar ou alergia? Se sim, qual?</label>
-        <input type="text" id="restricao" name="restricao">
+        <p>Tem restrição alimentar ou alergia?</p>
+        <div class="radio-group">
+          <label><input type="radio" name="restricao" value="nao" checked> Não</label>
+          <label><input type="radio" name="restricao" value="sim"> Sim</label>
+        </div>
+        <input type="text" id="restricaoDetalhe" name="restricaoDetalhe" placeholder="Qual?" class="hidden">
 
         <label for="incluir">Cite alimentos que gostaria que fossem incluídos no seu plano alimentar:</label>
         <textarea id="incluir" name="incluir"></textarea>
 
-        <label for="excluir">Tem algum alimento que não quer que seja incluído no plano alimentar? Se sim, qual?</label>
-        <textarea id="excluir" name="excluir"></textarea>
+        <p>Tem algum alimento que não quer que seja incluído?</p>
+        <div class="radio-group">
+          <label><input type="radio" name="excluir" value="nao" checked> Não</label>
+          <label><input type="radio" name="excluir" value="sim"> Sim</label>
+        </div>
+        <input type="text" id="excluirDetalhe" name="excluirDetalhe" placeholder="Qual?" class="hidden">
 
         <label for="preferencias">Quais suas frutas, legumes e verduras de preferência?</label>
         <textarea id="preferencias" name="preferencias"></textarea>
@@ -107,28 +116,62 @@
 
       <!-- Etapa 4 -->
       <div class="form-step">
-        <h2>Saúde e Treinos</h2>
+        <h2>Saúde e Histórico</h2>
 
-        <label for="aerobico">Você pode realizar atividades aeróbicas? Se sim, em qual horário?</label>
-        <input type="text" id="aerobico" name="aerobico">
+        <p>Você pode realizar atividades aeróbicas?</p>
+        <div class="radio-group">
+          <label><input type="radio" name="aerobico" value="nao" checked> Não</label>
+          <label><input type="radio" name="aerobico" value="sim"> Sim</label>
+        </div>
+        <input type="text" id="aerobicoDetalhe" name="aerobicoDetalhe" placeholder="Em qual horário?" class="hidden">
 
         <label for="frequencia">Quantas vezes na semana você consegue treinar e fazer exercícios aeróbicos?</label>
         <input type="text" id="frequencia" name="frequencia">
 
-        <label for="suplementos">Você usa suplementos ou manipulados? Se sim, quais?</label>
-        <textarea id="suplementos" name="suplementos"></textarea>
+        <p>Você possui alguma alergia a alimentos ou medicamentos?</p>
+        <div class="radio-group">
+          <label><input type="radio" name="alergia" value="nao" checked> Não</label>
+          <label><input type="radio" name="alergia" value="sim"> Sim</label>
+        </div>
+        <input type="text" id="alergiaDetalhe" name="alergiaDetalhe" placeholder="Quais?" class="hidden">
 
-        <label for="alergia_medicamentos">Você possui alguma alergia a alimentos ou medicamentos? Se sim, quais?</label>
-        <textarea id="alergia_medicamentos" name="alergia_medicamentos"></textarea>
+        <p>Possui alguma doença crônica?</p>
+        <div class="radio-group">
+          <label><input type="radio" name="doenca" value="nao" checked> Não</label>
+          <label><input type="radio" name="doenca" value="sim"> Sim</label>
+        </div>
+        <input type="text" id="doencaDetalhe" name="doencaDetalhe" placeholder="Qual?" class="hidden">
 
-        <label for="doenca">Possui alguma doença crônica? Se sim, qual?</label>
-        <textarea id="doenca" name="doenca"></textarea>
+        <p>Já sofreu alguma lesão?</p>
+        <div class="radio-group">
+          <label><input type="radio" name="lesao" value="nao" checked> Não</label>
+          <label><input type="radio" name="lesao" value="sim"> Sim</label>
+        </div>
+        <input type="text" id="lesaoDetalhe" name="lesaoDetalhe" placeholder="Qual?" class="hidden">
 
-        <label for="lesao">Já sofreu alguma lesão? Se sim, qual?</label>
-        <textarea id="lesao" name="lesao"></textarea>
+        <div class="btns">
+          <button type="button" class="btn-prev">Voltar</button>
+          <button type="button" class="btn-next">Avançar</button>
+        </div>
+      </div>
 
-        <label for="hormonal">Está fazendo algum protocolo hormonal? Se sim, informe substância, tempo e dosagem:</label>
-        <textarea id="hormonal" name="hormonal"></textarea>
+      <!-- Etapa 5 -->
+      <div class="form-step">
+        <h2>Suplementação e Observações</h2>
+
+        <p>Você usa suplementos ou manipulados?</p>
+        <div class="radio-group">
+          <label><input type="radio" name="suplementos" value="nao" checked> Não</label>
+          <label><input type="radio" name="suplementos" value="sim"> Sim</label>
+        </div>
+        <input type="text" id="suplementosDetalhe" name="suplementosDetalhe" placeholder="Quais?" class="hidden">
+
+        <p>Está fazendo algum protocolo hormonal?</p>
+        <div class="radio-group">
+          <label><input type="radio" name="hormonal" value="nao" checked> Não</label>
+          <label><input type="radio" name="hormonal" value="sim"> Sim</label>
+        </div>
+        <textarea id="hormonalDetalhe" name="hormonalDetalhe" placeholder="Informe substância, tempo e dosagem:" class="hidden"></textarea>
 
         <label for="observacoes">Outras observações:</label>
         <textarea id="observacoes" name="observacoes"></textarea>
@@ -141,51 +184,6 @@
     </form>
   </div>
 
-  <script>
-    const prevBtns = document.querySelectorAll(".btn-prev");
-    const nextBtns = document.querySelectorAll(".btn-next");
-    const progress = document.getElementById("progress");
-    const formSteps = document.querySelectorAll(".form-step");
-    const progressSteps = document.querySelectorAll(".progress-step");
-
-    let formStepsNum = 0;
-
-    nextBtns.forEach(btn => {
-      btn.addEventListener("click", () => {
-        formStepsNum++;
-        updateFormSteps();
-        updateProgressbar();
-      });
-    });
-
-    prevBtns.forEach(btn => {
-      btn.addEventListener("click", () => {
-        formStepsNum--;
-        updateFormSteps();
-        updateProgressbar();
-      });
-    });
-
-    function updateFormSteps() {
-      formSteps.forEach(step => {
-        step.classList.remove("active");
-      });
-      formSteps[formStepsNum].classList.add("active");
-    }
-
-    function updateProgressbar() {
-      progressSteps.forEach((step, idx) => {
-        if (idx <= formStepsNum) {
-          step.classList.add("active");
-        } else {
-          step.classList.remove("active");
-        }
-      });
-
-      const actives = document.querySelectorAll(".progress-step.active");
-      progress.style.width =
-        ((actives.length - 1) / (progressSteps.length - 1)) * 100 + "%";
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
