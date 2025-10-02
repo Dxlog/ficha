@@ -1,56 +1,188 @@
-/* Progress Bar */
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #fff;
+  color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.container {
+  background: #1e1e1e;
+  color: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Progresso */
 .progressbar {
   display: flex;
   justify-content: space-between;
   position: relative;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
+
 .progressbar::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 0;
-  transform: translateY(-50%);
   height: 4px;
   width: 100%;
-  background-color: #444;
+  background: #444;
+  transform: translateY(-50%);
   z-index: -1;
 }
+
 #progress {
   position: absolute;
   top: 50%;
   left: 0;
-  transform: translateY(-50%);
   height: 4px;
   width: 0%;
-  background: linear-gradient(90deg,#ff6600,#ff8800);
-  transition: 0.3s;
+  background: linear-gradient(90deg, #ff8c42, #ff5722);
+  transform: translateY(-50%);
+  transition: 0.3s ease;
   z-index: -1;
 }
+
 .progress-step {
-  width: 35px;
-  height: 35px;
-  background: #666;
-  border-radius: 50%;
+  background: #444;
   color: #fff;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: bold;
   position: relative;
+  transition: 0.3s;
 }
+
 .progress-step.active {
-  background: linear-gradient(135deg,#ff6600,#ff8800);
-  box-shadow: 0 0 10px rgba(255,102,0,0.8);
+  background: #ff5722;
+  transform: scale(1.1);
 }
+
 .progress-step::after {
   content: attr(data-title);
   position: absolute;
-  top: 45px;
+  top: 40px;
   font-size: 12px;
-  color: #ccc;
+  color: #bbb;
 }
-.progress-step.active::after {
-  color: #ff8800;
-  font-weight: 600;
+
+/* Formulário */
+form h2 {
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+form h3 {
+  margin: 15px 0 5px;
+  font-size: 18px;
+  color: #ff8c42;
+}
+
+label {
+  display: block;
+  margin: 12px 0 5px;
+  font-size: 15px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #2c2c2c;
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+textarea {
+  resize: none;
+}
+
+/* Toggle Sim/Não */
+.toggle-group {
+  display: flex;
+  gap: 15px;
+  margin: 8px 0;
+}
+
+.toggle-group input[type="radio"] {
+  display: none;
+}
+
+.toggle-group label {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 2px solid #ff8c42;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 14px;
+}
+
+.toggle-group input[type="radio"]:checked + label {
+  background: #ff8c42;
+  color: #fff;
+}
+
+/* Navegação */
+.btns {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btn-next {
+  background: #ff5722;
+  color: #fff;
+}
+
+.btn-prev {
+  background: #444;
+  color: #fff;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Escondido */
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+}
+
+.hidden {
+  display: none;
 }
