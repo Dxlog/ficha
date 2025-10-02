@@ -9,6 +9,8 @@
 <body>
   <div class="container">
     <h1>Formulário de Consultoria</h1>
+
+    <!-- Barra de progresso -->
     <div id="progressbar">
       <div class="progress-step active">1</div>
       <div class="progress-step">2</div>
@@ -36,7 +38,7 @@
         <label>Endereço (Cidade/Estado) *</label>
         <input type="text" required>
         <label>Objetivos *</label>
-        <textarea placeholder="Ex: perda de peso, ganho de massa muscular, definição..."></textarea>
+        <textarea placeholder="Ex: perda de peso, ganho de massa muscular, definição..." required></textarea>
         <button type="button" class="next-btn">Avançar</button>
       </div>
 
@@ -69,9 +71,9 @@
       <div class="form-step">
         <h2>Alimentação</h2>
         <label>Possui alguma restrição alimentar ou alergia?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="restricao" value="sim"> Sim</label>
-          <label><input type="radio" name="restricao" value="nao"> Não</label>
+        <div class="pill-group" data-target="restricao">
+          <button type="button" data-value="sim">Sim</button>
+          <button type="button" data-value="nao">Não</button>
         </div>
         <input type="text" class="hidden conditional" placeholder="Qual?">
 
@@ -82,7 +84,7 @@
         <label>Frutas, legumes e verduras de preferência</label>
         <textarea></textarea>
         <label>Qual sua alimentação atual? *</label>
-        <textarea placeholder="Descreva alimentos e horários..."></textarea>
+        <textarea placeholder="Descreva alimentos e horários..." required></textarea>
 
         <div class="btns">
           <button type="button" class="prev-btn">Voltar</button>
@@ -94,29 +96,29 @@
       <div class="form-step">
         <h2>Saúde</h2>
         <label>Você leva marmita para o trabalho?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="marmita" value="sim"> Sim</label>
-          <label><input type="radio" name="marmita" value="nao"> Não</label>
+        <div class="pill-group" data-target="marmita">
+          <button type="button" data-value="sim">Sim</button>
+          <button type="button" data-value="nao">Não</button>
         </div>
 
         <label>Possui alguma alergia a alimentos ou medicamentos?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="alergia" value="sim"> Sim</label>
-          <label><input type="radio" name="alergia" value="nao"> Não</label>
+        <div class="pill-group" data-target="alergia">
+          <button type="button" data-value="sim">Sim</button>
+          <button type="button" data-value="nao">Não</button>
         </div>
         <input type="text" class="hidden conditional" placeholder="Quais?">
 
         <label>Possui alguma doença crônica?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="doenca" value="sim"> Sim</label>
-          <label><input type="radio" name="doenca" value="nao"> Não</label>
+        <div class="pill-group" data-target="doenca">
+          <button type="button" data-value="sim">Sim</button>
+          <button type="button" data-value="nao">Não</button>
         </div>
         <input type="text" class="hidden conditional" placeholder="Quais?">
 
         <label>Já sofreu alguma lesão?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="lesao" value="sim"> Sim</label>
-          <label><input type="radio" name="lesao" value="nao"> Não</label>
+        <div class="pill-group" data-target="lesao">
+          <button type="button" data-value="sim">Sim</button>
+          <button type="button" data-value="nao">Não</button>
         </div>
         <input type="text" class="hidden conditional" placeholder="Qual?">
 
@@ -130,11 +132,11 @@
       <div class="form-step">
         <h2>Exercícios</h2>
         <label>Você realiza atividades aeróbicas?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="aerobico" value="sim"> Sim</label>
-          <label><input type="radio" name="aerobico" value="nao"> Não</label>
+        <div class="pill-group" data-target="aerobico">
+          <button type="button" data-value="sim">Sim</button>
+          <button type="button" data-value="nao">Não</button>
         </div>
-        <input type="time" class="hidden conditional" placeholder="Horário">
+        <input type="time" class="hidden conditional">
 
         <label>Quantas vezes por semana consegue treinar?</label>
         <input type="text" required>
@@ -149,16 +151,16 @@
       <div class="form-step">
         <h2>Suplementos e Protocolos</h2>
         <label>Você usa suplementos ou manipulados?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="suplemento" value="sim"> Sim</label>
-          <label><input type="radio" name="suplemento" value="nao"> Não</label>
+        <div class="pill-group" data-target="suplemento">
+          <button type="button" data-value="sim">Sim</button>
+          <button type="button" data-value="nao">Não</button>
         </div>
         <input type="text" class="hidden conditional" placeholder="Quais?">
 
         <label>Está fazendo algum protocolo hormonal?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="hormonal" value="sim"> Sim</label>
-          <label><input type="radio" name="hormonal" value="nao"> Não</label>
+        <div class="pill-group" data-target="hormonal">
+          <button type="button" data-value="sim">Sim</button>
+          <button type="button" data-value="nao">Não</button>
         </div>
         <textarea class="hidden conditional" placeholder="Qual substância? Há quanto tempo? Qual dosagem?"></textarea>
 
