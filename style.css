@@ -66,10 +66,35 @@ button {
 }
 
 /* Progresso */
-#progressbar {
+.progress-container {
   display: flex;
   justify-content: space-between;
+  position: relative;
   margin-bottom: 30px;
+}
+
+.progress-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  background: #444;
+  z-index: -1;
+}
+
+#progress {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  background: #ff7f27;
+  z-index: -1;
+  transition: 0.3s;
 }
 
 .progress-step {
