@@ -108,3 +108,23 @@ textarea{ min-height:86px; resize:vertical; }
   .actions{ flex-direction:column-reverse; }
   .btn{ width:100%; }
 }
+/* ... mantém o resto do CSS anterior ... */
+
+.inline-inputs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.inline-inputs input {
+  flex: 1;
+}
+
+.conditional {
+  margin-top: 10px;
+}
+
+/* Forçar inputs condicionais a seguirem o padrão */
+.hidden {
+  display: none;
+}
